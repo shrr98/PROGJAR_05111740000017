@@ -1,10 +1,10 @@
-#Tugas 1 : Basic Socket Programming
+# Tugas 1 : Basic Socket Programming
 
-##Tugas 1 a
-###Client
+## Tugas 1 a
+### Client
 Client mentransfer FILE bernama __FILES/tobesent.jpg__ ke server melalui socket.
 
-###Server
+### Server
 Server menerima FILE dari client berupa chunks dan menyimpannya dengan path __FILES/receivedbyserver.jpg__.
 
 [ ISSUE ]
@@ -32,9 +32,9 @@ if len(data) < CHUNK_SIZE:
     break
 ```
 
-##Tugas 1 b
-###Client
+## Tugas 1 b
+### Client
 Client mengirimkan request nama file kepada server, kemudian menunggu server mengirimkan FILE yang di-request.
 
-###Server
+### Server
 Server menerima request dari client berupa nama file, kemudian mengirimkan file tersebut kepada client berupa chunks.
