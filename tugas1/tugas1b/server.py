@@ -20,21 +20,21 @@ def runServer(port):
 		print('waiting for a connection')
 		connection, client_address = sock.accept()
 		print('connection from %s port %s' % client_address)
-		# Open file to save the data received
-		file = open("../FILES/receivedbyserver.jpg", "wb")
-		# Receive the data in small chunks
-		received = 0
+
+		# Receive the request
+		request = connection.recv(CHUNK_SIZE)
+
+		# Parse the requested file
+		file = open(request.decode('ascii'), "rb")
+		print('Send the requested file.')
 		while True:
-			data = connection.recv(CHUNK_SIZE)
-			received += len(data)
-			print('receive: ', received, len(data))
-			file.write(data)
-			if len(data) < CHUNK_SIZE:
+			chunk = file.read(CHUNK_SIZE)
+			if len(chunk) <= 0:
 				break
+			connection.sendall(chunk)
+		print('Sending file completed.')
 		# Clean up the connection
 		file.close()
-		print('sending status to client')
-		connection.sendall(('received %d bytes' % received).encode('ascii'))
 		connection.close()
 
 runServer(PORT)
