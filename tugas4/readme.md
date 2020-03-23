@@ -7,25 +7,25 @@ yang merupakan command request
 
 FITUR:
 
-- list : melihat daftar file
-  command   : list
-  parameter : none
-  response  : { 'res' : 'OK', 'list' : daftar file }
+- list : melihat daftar file<br/>
+  command   : list<br/>
+  parameter : none<br/>
+  response  : { 'res' : 'OK', 'list' : daftar file }<br/>
 
-- put : meletakkan file
-  command   : put
-  parameter : filename, content
-  response  : berhasil          -> { 'res' : 'OK'}
-              gagal (duplicate) -> { 'res' : 'ERRDUP' }
+- put : meletakkan file<br/>
+  command   : put<br/>
+  parameter : filename, content<br/>
+  response  : berhasil          -> { 'res' : 'OK'}<br/>
+              gagal (duplicate) -> { 'res' : 'ERRDUP' }<br/>
 
-- get : mengambil file
-  command   : get
-  parameter : filename
-  response  : berhasil          -> { 'res' : 'OK', 'content' : isi file }
-              gagal (Not Found) -> { 'res' : 'ERRNF', 'content' : None }
+- get : mengambil file<br/>
+  command   : get<br/>
+  parameter : filename<br/>
+  response  : berhasil          -> { 'res' : 'OK', 'content' : isi file }<br/>
+              gagal (Not Found) -> { 'res' : 'ERRNF', 'content' : None }<br/>
 
-- jika command tidak dikenali
-  response  : { 'res' : 'ERRCMD' }
+- jika command tidak dikenali<br/>
+  response  : { 'res' : 'ERRCMD' }<br/>
 
 ## CLIENT
 - List
