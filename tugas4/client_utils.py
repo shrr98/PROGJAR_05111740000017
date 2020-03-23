@@ -10,19 +10,19 @@ def list():
     data["cmd"] = "list"
     msg = json.dumps(data)
     pkt_str = kirim_data(msg)
-    pkt = json.loads(pkt_str)
+    print(pkt_str)
     print('---------------')
     print(f"RESPONS: {pkt['res']}")
     if(pkt['res']=='OK'):
         print('LIST:')
         for l in pkt['list']:
-            print(l)
+            print(f'  {l}')
 
 
 def get(filename, name_to_save):
     data = {}
     data["cmd"] = 'get'
-    data['filename'] = 'b.txt'
+    data['filename'] = filename
     msg = json.dumps(data)
     pkt_str = kirim_data(msg)
     pkt = json.loads(pkt_str)
@@ -80,9 +80,3 @@ def kirim_data(msg):
     return pkt
 
 
-if __name__=='__main__':
-    os.chdir('./data/client')
-    put('Screenshot.jpg', 'abc.jpg')
-    list()
-    get('abc.jpg', 'abc.jpg')
-    put('coba.txt', 'coba.txt')
